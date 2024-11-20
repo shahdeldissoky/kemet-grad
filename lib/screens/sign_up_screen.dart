@@ -168,6 +168,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
 
                   CustomButton(
+                    
   color: const Color(0xffffbd67),
   text: 'Login Info',
   onTap: () {
@@ -175,7 +176,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
       context,
       MaterialPageRoute(builder: (context) => const SignUpStepTwo()),
     );
-  },
+  }, horizontal: 135,
+  vertical: 13,
 ),
                   
                 ],

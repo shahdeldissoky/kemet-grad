@@ -55,6 +55,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                     const SizedBox(height: 40,),
             
                      CustomButton(
+                      horizontal: 135,
+                      vertical: 13,
                       color: const Color(0xffFFBD67), text: 'Send code',
                       onTap: (){
                          Navigator.push(

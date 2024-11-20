@@ -57,6 +57,8 @@ class SignUpStepTwo extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomButton(
+                      horizontal: 135,
+                      vertical: 13,
                       color: const Color(0xffffbd67),
                       text: 'Log in',
                       onTap: () {

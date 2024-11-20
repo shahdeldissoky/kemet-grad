@@ -52,6 +52,8 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 25),
               const CustomButton(
+                horizontal: 135,
+                vertical: 13,
                 color: Color(0xffFFBD67),
                 text: 'Sign in',
                 ),
