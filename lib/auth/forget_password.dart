@@ -11,6 +11,7 @@ import '../constants/constants.dart';
 
 class ForgetPasswordController extends GetxController {
   TextEditingController emailController = TextEditingController();
+   late String data;
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   Future<void> forgetWithMail() async{
@@ -30,19 +31,19 @@ class ForgetPasswordController extends GetxController {
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
 
-        var data = json['data'];
+         data = json['data'];
         final SharedPreferences? prefs = await _prefs;
         await prefs?.setString('data', data);
 
         emailController.clear();
 
         
-        Get.off(()=> const VerificationScreen());
+        Get.off(()=> VerificationScreen());
       }else{
         final json = jsonDecode(response.body);
         var message = json['apiResponse']['message'];
         print(message);
-        
+
         Get.snackbar('Error', message, snackPosition: SnackPosition.BOTTOM);
       }
     } catch (e) {

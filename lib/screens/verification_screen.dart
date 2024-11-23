@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:kemet_grad/auth/otp.dart';
 
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
@@ -9,6 +12,9 @@ class VerificationScreen extends StatefulWidget {
 }
 
 class _VerificationScreenState extends State<VerificationScreen> {
+
+final OtpController otpController = Get.put(OtpController()); 
+
   late Timer _timer;
   int _secondsRemaining = 30;
 
@@ -29,7 +35,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
   }
 
   void startTimer() {
-    _secondsRemaining = 20; // Reset timer to 20 seconds
+    _secondsRemaining = 30; // Reset timer to 20 seconds
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (_secondsRemaining > 0) {
@@ -59,6 +65,14 @@ class _VerificationScreenState extends State<VerificationScreen> {
     } else if (value.isEmpty && index > 0) {
       FocusScope.of(context).requestFocus(_focusNodes[index - 1]);
     }
+  }
+
+  String getOtpCode() {
+    return _controllers.map((controller) => controller.text).join();
+  }
+
+   bool isOtpComplete() {
+    return _controllers.every((controller) => controller.text.isNotEmpty);
   }
 
   @override
@@ -94,7 +108,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
             const SizedBox(height: 8),
             // Subtitle
             const Text(
-              "We’ve sent a code to helloworld@gmail.com",
+              "We’ve sent a code to your email address",
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black54,
@@ -152,7 +166,18 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   ),
                 ),
                 onPressed: () {
-                  // Handle Verify button click
+                  if (isOtpComplete()) {
+                    String otpCode = getOtpCode();
+                    print("Entered OTP: $otpCode");
+                   otpController.oTP(otpCode: otpCode);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Please fill all fields'),
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                  }
                 },
                 child: const Text(
                   'Verify',
