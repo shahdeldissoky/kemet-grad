@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kemet_grad/screens/password_changed_screen.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
@@ -8,49 +9,54 @@ class ResetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body:  Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 150,),
-            Text('Reset password',
+            const SizedBox(height: 150,),
+            const Text('Reset password',
             style: TextStyle(
               fontSize: 35,
               fontWeight: FontWeight.w900,
             ),
             ),
-            SizedBox(height: 10,),
-            Text('Please type somthing you will remember',
+            const SizedBox(height: 10,),
+            const Text('Please type somthing you will remember',
             style: TextStyle(
               color: Colors.grey,
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
             ),
-            SizedBox(height: 35,),
-            Text('New password'),
-            SizedBox(height: 10,),
-            CustomTextField(
+            const SizedBox(height: 35,),
+            const Text('New password'),
+            const SizedBox(height: 10,),
+            const CustomTextField(
               horizontal: 30, vertical: 18,
               text: 'must be 8 charachters',
               suffixIcon: Icon(Icons.visibility_outlined),
               ),
-            SizedBox(height: 20,),
-            Text('Confirm new password'),
-            CustomTextField(
+            const SizedBox(height: 20,),
+            const Text('Confirm new password'),
+            const CustomTextField(
               horizontal: 30, vertical: 18,
               text: 'repeat password',
               suffixIcon: Icon(Icons.visibility_outlined),
               ),
-            SizedBox(height: 40,),
+            const SizedBox(height: 40,),
             Center(
               child: CustomButton(
                 vertical: 18,
                 horizontal: 120,
-                color: Color(0xffFFBD67), text: 'Reset password',
-              
+                color: const Color(0xffFFBD67), text: 'Reset password',
+                onTap: () {
+                   Navigator.pop(
+                          context,
+                          MaterialPageRoute(builder: (context)=> const PasswordChangedScreen()),
+                        );
+                },
               ),
             ),
               

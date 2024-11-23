@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../auth/registeration.dart';
 import '../widgets/background_decoration.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 
 class SignUpStepTwo extends StatelessWidget {
-  const SignUpStepTwo({super.key});
+
+   final RegisterationController controller = Get.put(RegisterationController());
+
+   SignUpStepTwo({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final firstScreenData = Get.arguments;
+
     return Scaffold(
       body: Container(
         decoration: backgroundDecoration(), // Ensure background decoration is applied
@@ -29,28 +36,31 @@ class SignUpStepTwo extends StatelessWidget {
                 const SizedBox(height: 30),
                 const Text('Email'),
                 const SizedBox(height: 10),
-                const CustomTextField(
+                 CustomTextField(
                   horizontal: 23,
                   vertical: 20,
                   text: 'example@gmail.com',
+                  controller: controller.emailController,
                 ),
                 const SizedBox(height: 20),
                 const Text('Create a password'),
                 const SizedBox(height: 10),
-                const CustomTextField(
+                 CustomTextField(
                   horizontal: 23,
                   vertical: 20,
                   text: 'must be 8 characters',
-                  suffixIcon: Icon(Icons.visibility_outlined),
+                  suffixIcon: const Icon(Icons.visibility_outlined),
+                  controller: controller.passwordController,
                 ),
                 const SizedBox(height: 20),
                 const Text('Confirm password'),
                 const SizedBox(height: 10),
-                const CustomTextField(
+                 CustomTextField(
                   horizontal: 23,
                   vertical: 20,
                   text: 'repeat password',
                   suffixIcon: Icon(Icons.visibility_outlined),
+                  controller: controller.confirmPassController,
                 ),
                 const SizedBox(height: 50),
                 Row(
@@ -60,13 +70,19 @@ class SignUpStepTwo extends StatelessWidget {
                       horizontal: 135,
                       vertical: 13,
                       color: const Color(0xffffbd67),
-                      text: 'Log in',
+                      text: 'Register',
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignUpStepTwo(),
-                          ),
+                         controller.registerWithMail(
+                          gender: firstScreenData['gender'],
+                          firstName: firstScreenData['firstName'],
+                          lastName: firstScreenData['lastName'],
+                          phoneNumber: firstScreenData['phoneNumber'],
+                          dateOfBirth: firstScreenData['dateOfBirth'],
+                          nationality: firstScreenData['nationality'],
+                          ssn: firstScreenData['ssn'],
+                          email: controller.emailController.text,
+                          password: controller.passwordController.text,
+                          confirmPassword: controller.confirmPassController.text,
                         );
                       },
                     ),
