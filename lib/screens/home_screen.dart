@@ -7,6 +7,8 @@ import 'drawer_screen.dart';
 import 'profile_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     // Greeting Text
                    const Padding(
-                      padding: const EdgeInsets.only(top: 60,left: 20),
+                      padding:  EdgeInsets.only(top: 60,left: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

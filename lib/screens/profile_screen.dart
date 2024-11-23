@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -151,7 +153,7 @@ class ProfileScreen extends StatelessWidget {
                   // Navigate to the HomeScreen when the "Home" icon is clicked
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(builder: (context) =>const HomeScreen()),
                   );
                 }
                          },

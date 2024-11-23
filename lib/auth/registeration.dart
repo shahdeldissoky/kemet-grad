@@ -64,7 +64,7 @@ class RegisterationController extends GetxController {
         var token = json['token'];
         final SharedPreferences? prefs = await _prefs;
         await prefs?.setString('token', token);
-        
+
         emailController.clear();
         passwordController.clear();
 
@@ -79,8 +79,8 @@ class RegisterationController extends GetxController {
           context: Get.context!,
           builder: (context) {
             return SimpleDialog(
-              title: Text('error'),
-              contentPadding: EdgeInsets.all(20),
+              title:const Text('error'),
+              contentPadding:const EdgeInsets.all(20),
               children: [Text(e.toString())],
             );
           });

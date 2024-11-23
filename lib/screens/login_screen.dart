@@ -55,7 +55,7 @@ var ialogin = false.obs;
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ForgotPasswordScreen()),
+                          builder: (context) => const ForgotPasswordScreen()),
                     );
                   },
                   child: const Text(
@@ -93,7 +93,7 @@ var ialogin = false.obs;
                           height: 1.5,
                           width: 90,
                         ),
-                        SizedBox(
+                       const SizedBox(
                           width: 25,
                         ),
                         const Text(
@@ -102,7 +102,7 @@ var ialogin = false.obs;
                               color: Color(0xff718096),
                               fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 25,
                         ),
                         Container(

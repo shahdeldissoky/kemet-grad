@@ -59,7 +59,7 @@ class SignUpStepTwo extends StatelessWidget {
                   horizontal: 23,
                   vertical: 20,
                   text: 'repeat password',
-                  suffixIcon: Icon(Icons.visibility_outlined),
+                  suffixIcon: const Icon(Icons.visibility_outlined),
                   controller: controller.confirmPassController,
                 ),
                 const SizedBox(height: 50),

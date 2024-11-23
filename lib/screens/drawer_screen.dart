@@ -10,7 +10,7 @@ class AppDrawer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Drawer Header
-          Padding(
+         const Padding(
             padding: EdgeInsets.only(top: 70,left: 35,bottom: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,9 +41,9 @@ class AppDrawer extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 35 ,),
-          Divider(thickness: 0.5,color: Colors.grey,),
-          SizedBox(height: 30 ,),
+         const SizedBox(height: 35 ,),
+         const Divider(thickness: 0.5,color: Colors.grey,),
+         const SizedBox(height: 30 ,),
 
 
           // Drawer Items
@@ -125,7 +125,7 @@ class _DrawerItemState extends State<DrawerItem> {
           padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 30),
           child: Row(
             children: [
-              Icon(widget.icon, color: isHovered ? Colors.black : Color(0xff6c7072),size: 30,),
+              Icon(widget.icon, color: isHovered ? Colors.black : const Color(0xff6c7072),size: 30,),
               const SizedBox(width: 20),
               Text(
                 widget.text,

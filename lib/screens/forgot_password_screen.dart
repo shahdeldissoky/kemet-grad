@@ -83,10 +83,10 @@ class ForgotPasswordScreen extends StatelessWidget {
                           onTap: () {
                               Navigator.pop(
                           context,
-                          MaterialPageRoute(builder: (context)=> LoginScreen()),
+                          MaterialPageRoute(builder: (context)=>const LoginScreen()),
                         );
                           },
-                          child: Text('Log in',style: TextStyle(fontWeight: FontWeight.bold),),
+                          child:const Text('Log in',style: TextStyle(fontWeight: FontWeight.bold),),
                           )
                       ],
                     ),

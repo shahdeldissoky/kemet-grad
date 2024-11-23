@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:kemet_grad/screens/login_screen.dart';
 import 'package:kemet_grad/screens/sign_up_screen.dart';
-
 import 'screens/reset_password_screen.dart';
 
 void main() {
@@ -30,12 +29,12 @@ class MyApp extends StatelessWidget {
 class CustomSearchDelegate extends SearchDelegate {
   @override
   List<Widget>? buildActions(BuildContext context) {
-    return [IconButton(icon: Icon(Icons.clear), onPressed: () => query = '')];
+    return [IconButton(icon:const Icon(Icons.clear), onPressed: () => query = '')];
   }
 
   @override
   Widget? buildLeading(BuildContext context) {
-    return IconButton(icon: Icon(Icons.arrow_back), onPressed: () => close(context, null));
+    return IconButton(icon:const Icon(Icons.arrow_back), onPressed: () => close(context, null));
   }
 
   @override

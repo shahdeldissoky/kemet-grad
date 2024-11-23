@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:kemet_grad/auth/registeration.dart';
-
 import '../widgets/background_decoration.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
