@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:kemet_grad/screens/forgot_password_screen.dart';
 import 'package:kemet_grad/screens/login_screen.dart';
 import 'package:kemet_grad/screens/sign_up_screen.dart';
+import 'package:kemet_grad/screens/verification_screen.dart';
 import 'screens/reset_password_screen.dart';
 
 void main() {
@@ -13,9 +15,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUpScreen(),
+      home: ForgotPasswordScreen(),
     );
   }
 }

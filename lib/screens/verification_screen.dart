@@ -13,12 +13,12 @@ class _VerificationScreenState extends State<VerificationScreen> {
   int _secondsRemaining = 30;
 
   final List<TextEditingController> _controllers = List.generate(
-    4,
+    6,
     (index) => TextEditingController(),
   );
 
   final List<FocusNode> _focusNodes = List.generate(
-    4,
+    6,
     (index) => FocusNode(),
   );
 
@@ -104,7 +104,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
             // OTP Input Fields
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(4, (index) {
+              children: List.generate(6, (index) {
                 return SizedBox(
                   height: 78,
                   width: 78,

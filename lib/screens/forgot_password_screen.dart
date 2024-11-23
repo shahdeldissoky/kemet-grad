@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kemet_grad/screens/login_screen.dart';
 import 'package:kemet_grad/widgets/background_decoration.dart';
 import 'package:kemet_grad/widgets/custom_button.dart';
 import 'package:kemet_grad/widgets/custom_text_field.dart';
 
+import '../auth/forget_password.dart';
 import 'verification_screen.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({super.key});
+   ForgotPasswordScreen({super.key});
+
+final ForgetPasswordController forgetPasswordController = Get.put(ForgetPasswordController()); 
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +50,11 @@ class ForgotPasswordScreen extends StatelessWidget {
             
                     const SizedBox(height: 5,),
             
-                    const CustomTextField(
+                     CustomTextField(
                       text: 'Enter your email address',
                       horizontal: 13,
                       vertical: 20,
+                      controller: forgetPasswordController.emailController,
                       ),
             
                     const SizedBox(height: 40,),
@@ -59,12 +64,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                       vertical: 13,
                       color: const Color(0xffFFBD67), text: 'Send code',
                       onTap: (){
-                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const VerificationScreen(),
-                          ),
-                         );
+                        forgetPasswordController.forgetWithMail();
                       },
                       ),
                     

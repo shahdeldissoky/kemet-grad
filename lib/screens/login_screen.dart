@@ -19,7 +19,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
 
 LoginController loginController = Get.put(LoginController()); 
-var ialogin = false.obs;
+var islogin = false.obs;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +55,7 @@ var ialogin = false.obs;
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ForgotPasswordScreen()),
+                          builder: (context) =>  ForgotPasswordScreen()),
                     );
                   },
                   child: const Text(
