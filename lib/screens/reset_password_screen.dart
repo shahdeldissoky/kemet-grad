@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kemet_grad/auth/reset_password.dart';
 import 'package:kemet_grad/screens/password_changed_screen.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({super.key});
+   ResetPasswordScreen({super.key});
+  final ResetPasswordController resetPasswordController = Get.put(ResetPasswordController()); 
 
   @override
   Widget build(BuildContext context) {
@@ -31,20 +34,23 @@ class ResetPasswordScreen extends StatelessWidget {
             ),
             ),
             const SizedBox(height: 35,),
-            const Text('New password'),
+            const Text('Your email'),
             const SizedBox(height: 10,),
-            const CustomTextField(
+             CustomTextField(
               horizontal: 30, vertical: 18,
-              text: 'must be 8 charachters',
-              suffixIcon: Icon(Icons.visibility_outlined),
+              text: 'example@gmail.com',
+              controller: resetPasswordController.emailController ,
               ),
             const SizedBox(height: 20,),
-            const Text('Confirm new password'),
-            const CustomTextField(
+            const Text('New password'),
+            const SizedBox(height: 10,),
+             CustomTextField(
               horizontal: 30, vertical: 18,
-              text: 'repeat password',
-              suffixIcon: Icon(Icons.visibility_outlined),
+              text: 'must be 8 charachters',
+              suffixIcon:const Icon(Icons.visibility_outlined),
+              controller: resetPasswordController.passwordController,
               ),
+           
             const SizedBox(height: 40,),
             Center(
               child: CustomButton(
@@ -52,10 +58,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 horizontal: 120,
                 color: const Color(0xffFFBD67), text: 'Reset password',
                 onTap: () {
-                   Navigator.pop(
-                          context,
-                          MaterialPageRoute(builder: (context)=> const PasswordChangedScreen()),
-                        );
+                   resetPasswordController.resetWithMail();
                 },
               ),
             ),

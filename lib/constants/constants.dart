@@ -8,4 +8,5 @@ class _AuthEndPionts {
   final String register = '/Api/Accounts/RegisterCustomer';
   final String forget = '/Api/Accounts/Forgot-password';
   final String verifyOTP = '/api/accounts/VerifyOTP';
+  final String resetPass = '/api/Accounts/Resetpassword';
 }

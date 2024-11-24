@@ -51,7 +51,7 @@ class OtpController extends GetxController {
 
     
 
-        Get.off(() => const ResetPasswordScreen());
+        Get.off(() =>  ResetPasswordScreen());
       } else {
         final json = jsonDecode(response.body);
         var message = json['message'];

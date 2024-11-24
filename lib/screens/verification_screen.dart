@@ -168,7 +168,6 @@ final OtpController otpController = Get.put(OtpController());
                 onPressed: () {
                   if (isOtpComplete()) {
                     String otpCode = getOtpCode();
-                    print("Entered OTP: $otpCode");
                    otpController.oTP(otpCode: otpCode);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -198,9 +197,10 @@ final OtpController otpController = Get.put(OtpController());
                   GestureDetector(
                     onTap: _secondsRemaining == 0
                         ? () {
-                            startTimer(); // Restart timer on resend
+                            startTimer(); 
+                            
                           }
-                        : null, // Disable tap if timer is running
+                        : null, 
                     child: Text(
                       'Send code again',
                       style: TextStyle(
